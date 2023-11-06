@@ -4,7 +4,7 @@ import { renderWithEverything } from "utils/testUtils";
 import { act } from "react-dom/test-utils";
 import { Field } from "types";
 import userEvent from "@testing-library/user-event";
-import { SET_PERSON } from "store/types";
+import { SET_PERSON } from "store";
 
 const setup = (props: { fieldSet: Array<Array<Field> | Field> }) => {
   return renderWithEverything(<Index fieldSet={props.fieldSet} />);
@@ -20,7 +20,7 @@ describe("Index", () => {
         },
       ],
     });
-    const input = screen.getByRole("textbox", { name: "firstName" }) as HTMLInputElement;
+    const input = screen.getByRole("textbox", { name: "FirstName" }) as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input, { target: { value: "john" } });
     });
@@ -71,7 +71,7 @@ describe("Index", () => {
       ],
     });
 
-    const input = screen.getByRole("textbox", { name: "phone" }) as HTMLInputElement;
+    const input = screen.getByRole("textbox", { name: "Phone" }) as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input, { target: { value: "123" } });
     });
@@ -92,7 +92,7 @@ describe("Index", () => {
       ],
     });
 
-    const input = screen.getByRole("textbox", { name: "email" }) as HTMLInputElement;
+    const input = screen.getByRole("textbox", { name: "Email" }) as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input, { target: { value: "invalidemail" } });
     });
